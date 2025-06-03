@@ -17,11 +17,15 @@ function App() {
       return;
     }
 
-    const lines = inputText.split("\n");
+    const lines = inputText
+      .split("\n")
+      .map((line) => line.trim())
+      .filter((line) => line !== ""); // 빈 줄 제거
+
     const formatted = lines
-      .map((line) => {
-        const trimmed = line.trim();
-        return trimmed ? `'${trimmed}'` : "";
+      .map((line, idx) => {
+        const isLast = idx === lines.length - 1;
+        return isLast ? `'${line}'` : `'${line}',`;
       })
       .join("\n");
 
