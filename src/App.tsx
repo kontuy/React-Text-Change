@@ -42,6 +42,12 @@ function App() {
     }
   };
 
+  const handleReset = () => {
+    setInputText("");
+    setOutputText("");
+    showToast("초기화 완료!");
+  };
+
   return (
     <div
       style={{
@@ -119,6 +125,21 @@ function App() {
             }}
           >
             결과 복사
+          </button>
+          <button
+            onClick={handleReset}
+            style={{
+              padding: "12px 24px",
+              fontSize: "14px",
+              borderRadius: "6px",
+              backgroundColor: "#f44336",
+              color: "white",
+              border: "none",
+              cursor: "pointer",
+              whiteSpace: "nowrap",
+            }}
+          >
+            초기화
           </button>
         </div>
 
